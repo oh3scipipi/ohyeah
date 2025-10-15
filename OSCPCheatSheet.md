@@ -138,3 +138,16 @@ _________
   → And simple
 </details>
 
+
+
+### **_Enumerations_**
+
+##### nmap
+
+###### nmap
+###### nmap
+###### nmap
+
+##### autorecon
+
+###### nmap
