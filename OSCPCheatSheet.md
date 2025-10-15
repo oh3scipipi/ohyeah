@@ -8,12 +8,16 @@
 ##### Heading 5
 ###### Heading 6
 
+### **_Emphasis_**
+
 Using two asterisks **this text is bold**.  
 Two underscores __work as well__.  
 Let's make it *italic now*.  
 You guessed it, _one underscore is also enough_.  
 Can we combine **_both of that_?** Absolutely.
 What if I want to ~~strikethrough~~?
+
+### **_Blockquote_**
 
 > This is a blockquote.
 > Want to write on a new line with space between?
@@ -22,10 +26,15 @@ What if I want to ~~strikethrough~~?
 > >
 > > > PS. you can **style** your text _as you want_.
 
+### **_Images_**
+
+
 ![text if the image fails to load](auto-generated-path-to-file-when-you-upload-image "Text displayed on hover")
 
 [logo]: auto-generated-path-to-file-when-you-upload-image "Hover me"
 ![error text][logo]
+
+### **_Links_**
 
 [markdown-cheatsheet]: https://github.com/im-luka/markdown-cheatsheet
 [docs]: https://github.com/adam-p/markdown-here
@@ -34,7 +43,7 @@ What if I want to ~~strikethrough~~?
 [My Markdown Cheatsheet - star it if you like it][markdown-cheatsheet]
 Find some great docs [here][docs]
 
-
+### **_Code_**
 I created `.env` file at the root.
     Backticks inside backticks? `` `No problem.` ``
 
@@ -50,7 +59,7 @@ I created `.env` file at the root.
     console.log(x);
     ```
 
-
+### **_Lists_**
     1. HTML
 2. CSS
 3. Javascript
@@ -77,7 +86,7 @@ I created `.env` file at the root.
    * Vue
    + Svelte
 
-
+### **_Tables_**
 
 | Left Align (default) | Center Align | Right Align |
 | :------------------- | :----------: | ----------: |
@@ -85,14 +94,28 @@ I created `.env` file at the root.
 | Next.js              | Express      | MongoDB     |
 | Vue.js               | Nest.js      | Redis       |
 
+### **_Lines_**
 
+First Horizontal Line
+
+***
+
+Second One
+
+-----
+
+Third
+
+_________
+
+### **_Tasks_**
 
 - [x] Learn Markdown
 - [ ] Learn Frontend Development
 - [ ] Learn Full Stack Development
 
 
-
+### **_HTMLs_**
 
 <h1>This is a heading</h1>
 <p>Paragraph...</p>
