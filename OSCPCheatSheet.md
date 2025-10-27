@@ -1,11 +1,13 @@
 ### **_OSCP Cheatsheet_**
 machines
 - air
-Recon
+````Recon
 nmap -sT -p- --reason -vvv 192.168.213.100 -oN nmap-air3-tcp.txt
 *rustscan -a $IP --ulimit=5000
 **sudo nmap -Pn -n $IP -sC -sV -p- --open
+
 port 8888
+
 aria2filters Cookie
 public exploit cve-2023-39141
 https://www.youtube.com/watch?v=kAFKJWUtN6c
@@ -60,7 +62,7 @@ Following the same steps as before I setup a download for the newly created auth
 
 ssh -i root-id_rsa root@aria2
 
-
+````
 #### Reconnaisance
 
 #### Some specific ports
