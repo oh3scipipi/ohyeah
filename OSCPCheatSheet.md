@@ -1,3 +1,19 @@
+### **_OSCP Cheatsheet_**
+
+#### Reconnaisance
+
+#### Some specific ports
+
+#### FUZZING
+
+#### Pivoting
+
+#### PrivEsc
+
+
+#### Heading 4
+
+
 ### **_Headings_**
 
 
