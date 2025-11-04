@@ -101,5 +101,19 @@ close
 hydra -l [username] -P [wordlist] -s [port] ssh://[host]
 
   21 - FTP
-  
+
+  80 - HTTP
+
+https://book.hacktricks.wiki/en/pentesting-web/file-inclusion/index.html
+
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  ssl/https
+bash
+nc -v domain.com 80 # GET / HTTP/1.0
+openssl s_client -connect domain.com:443 # GET / HTTP/1.0
+
+
+
+  https://notes.benheater.com/books/file-transfers-and-data-exfiltration/page/http
 
