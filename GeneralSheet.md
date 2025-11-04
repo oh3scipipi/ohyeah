@@ -25,7 +25,7 @@ ALSO WRITE TO PAPER! I AM OLD SCHOOL AND I DON't TRUST THE MACHINES!
     
 WHICH PORTS ARE OPEN
 
- 22? or ANY SSH -> 
+ 21? or ANY FTP -> 
 
 
                             it means you will check 
