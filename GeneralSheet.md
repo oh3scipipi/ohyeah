@@ -24,7 +24,12 @@ TAKE A NOTE!!!
 ALSO WRITE TO PAPER! I AM OLD SCHOOL AND I DON't TRUST THE MACHINES!
     
 WHICH PORTS ARE OPEN
-  22? or ANY SSH -> it means you will check /etc/ssh/ssh_config and see where are the keys and types of them 
+  22? or ANY SSH -> 
+
+
+                            it means you will check 
+                                            /etc/ssh/ssh_config 
+                            and see where are the keys and types of them 
                                             ~/.ssh/config
                                             /home/user/.ssh/id_rsa  -  .pub
                                             /home/user/.ssh/id_dsa  -  .pub
@@ -36,7 +41,17 @@ WHICH PORTS ARE OPEN
                                                ssh_known_hosts
                                                known_hosts
                                                id_rsa
+                            WINDOWS
+                                          C:\Users\username\.ssh\known_hosts
+                                          C:\Users\MyUser/.ssh/id_rsa
+                                          C:\Users\username\.ssh
+                                          %APPDATA%\SSH\UserKeys
+                            ON CMD OR POWERSHELL
+                                          cd %userprofile%.ssh
+                            OR
+                                          type ~\.ssh\id_rsa.pub | clip
 
+                                          
                             AFTER GOT THE FILE you may need to crack it!
                             FIRST 
                                 sudo chmod 600 user_id_rsa or pub
@@ -49,7 +64,8 @@ WHICH PORTS ARE OPEN
                                 ~/.john/john.pot
                             IF THERE IS AN ISSUE STILL CHECK OTHER FILES MAYBE THERE ARE SOME RULES YOU NEED TO USE IT!                              
                             BUT DON't FORGET THIS IS NOT ONLY FOR STEALING BUT ALSO GIVING YOUR SELF AUTHORIZATION
-                                ssh-keygen      
+                                ssh-keygen -t rsa
+                            IT WILL WRITE WHERE YOU ARE WRITING YOUR PUB AND PRIVATE KEY
                             
   21 - FTP
   
