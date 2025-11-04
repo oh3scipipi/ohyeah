@@ -29,7 +29,30 @@ WHICH PORTS ARE OPEN
 
 
                             it means you will check 
-                                            /etc/ssh/ssh_config 
+                                            ftp://anonymous:anonymous@10.10.10.98 
+                                            wget -m ftp://anonymous:anonymous@10.10.10.98 #Donwload all
+                                            wget -m --no-passive ftp://anonymous:anonymous@10.10.10.98 #Download all
+
+
+                                            netexec ftp <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ls
+                                            netexec ftp <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --get-file <FILE>
+                                            netexec ftp <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --put-file <FILE> <FILE
+
+                                            wget -m ftp://[username]:[password]@[host] ⇒ download all files
+
+ftp [host] OR ftp [username]@[host]
+Run help for a more comprehensive list of commands.
+ls
+binary ⇒ transfer binary file
+ascii ⇒ transfer text file
+put [file] ⇒ upload
+get [file] ⇒ download
+mget * ⇒ get all files
+close
+
+
+
+
                             and see where are the keys and types of them 
   22? or ANY SSH -> 
 
@@ -73,7 +96,10 @@ WHICH PORTS ARE OPEN
                             BUT DON't FORGET THIS IS NOT ONLY FOR STEALING BUT ALSO GIVING YOUR SELF AUTHORIZATION
                                 ssh-keygen -t rsa
                             IT WILL WRITE WHERE YOU ARE WRITING YOUR PUB AND PRIVATE KEY
-                            
+
+                            ssh [domain]\\[username]@[host] -p [port]
+hydra -l [username] -P [wordlist] -s [port] ssh://[host]
+
   21 - FTP
   
 
