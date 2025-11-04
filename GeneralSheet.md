@@ -24,6 +24,13 @@ TAKE A NOTE!!!
 ALSO WRITE TO PAPER! I AM OLD SCHOOL AND I DON't TRUST THE MACHINES!
     
 WHICH PORTS ARE OPEN
+
+ 22? or ANY SSH -> 
+
+
+                            it means you will check 
+                                            /etc/ssh/ssh_config 
+                            and see where are the keys and types of them 
   22? or ANY SSH -> 
 
 
