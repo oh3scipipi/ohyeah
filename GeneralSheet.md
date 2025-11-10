@@ -162,3 +162,12 @@ TARGET MACHINE ADMIN CMD
   sc.exe start SimpleService
   sc.exe stop SimpleService
   sc.exe delete SimpleService
+
+  nssm.cc - > download it then
+      nssm.exe install SERVICENAME
+
+#WINDOWS PRIVESC AMAZING WEBSITE
+https://xorond.com/posts/2021/04/windows-local-privilege-escalation/
+
+
+###WEAK SERVICE PERMISION
