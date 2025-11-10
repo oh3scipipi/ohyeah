@@ -220,4 +220,9 @@ Service Binary
   
   Service enumeration with winPEAS
 
+another interesting link
+https://www.narycyber.com/posts/privilege-escalation/windows/setting-up-a-lab/
+
+I THINK THIS IS AWESOME TOO
+https://juggernaut-sec.com/weak-service-permissions-windows-privilege-escalation/
 
